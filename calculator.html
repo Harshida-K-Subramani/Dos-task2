@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #e6e6fa;
+        }
+        .box {
+            background: white;
+            width: 300px;
+            margin: 80px auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            background: purple;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        h2 {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Calculator</h2>
+
+    <input type="number" id="a" placeholder="Enter first number">
+    <input type="number" id="b" placeholder="Enter second number">
+
+    <br>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+
+    <h3 id="result">Result: </h3>
+</div>
+
+<script>
+function calculate(op) {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let ans;
+
+    if (op == '+')
+        ans = a + b;
+    else if (op == '-')
+        ans = a - b;
+    else if (op == '*')
+        ans = a * b;
+    else if (op == '/') {
+        if (b == 0) {
+            document.getElementById("result").innerHTML = "Cannot divide by zero";
+            return;
+        }
+        ans = a / b;
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + ans;
+}
+</script>
+
+</body>
+</html>

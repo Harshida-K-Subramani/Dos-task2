@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grading System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #e0f2ff;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            width: 350px;
+            margin: 70px auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+        button {
+            background: #0077b6;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+        }
+        h2 {
+            color: #0077b6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Student Grading System</h2>
+
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="number" id="mark" placeholder="Enter Mark (0-100)">
+
+    <br>
+    <button onclick="grade()">Calculate Grade</button>
+
+    <h3 id="result"></h3>
+</div>
+
+<script>
+function grade() {
+    let name = document.getElementById("name").value;
+    let mark = Number(document.getElementById("mark").value);
+    let result = "";
+
+    if (name == "" || document.getElementById("mark").value == "") {
+        result = "Please enter all details";
+    }
+    else if (mark < 0 || mark > 100) {
+        result = "Enter valid marks";
+    }
+    else if (mark >= 90)
+        result = "Grade A";
+    else if (mark >= 80)
+        result = "Grade B";
+    else if (mark >= 70)
+        result = "Grade C";
+    else if (mark >= 50)
+        result = "Grade D";
+    else
+        result = "Fail";
+
+    document.getElementById("result").innerHTML =
+        name == "" ? result : name + " - " + result;
+}
+</script>
+
+</body>
+</html>
